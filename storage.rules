@@ -1,0 +1,56 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isImageFile() {
+      return request.resource.contentType.matches('image/.*');
+    }
+
+    function isUnder5MB() {
+      return request.resource.size < 5 * 1024 * 1024;
+    }
+
+    function isUnder10MB() {
+      return request.resource.size < 10 * 1024 * 1024;
+    }
+
+    // Restaurant assets
+    match /restaurants/{restaurantId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAuthenticated() && isImageFile() && isUnder5MB();
+    }
+
+    // User avatars
+    match /users/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if isOwner(userId) && isImageFile() && isUnder5MB();
+    }
+
+    // Driver documents
+    match /drivers/{driverId}/{allPaths=**} {
+      allow read: if isOwner(driverId) || request.auth.token.admin == true;
+      allow write: if isOwner(driverId) && isUnder10MB();
+    }
+
+    // Delivery proof photos
+    match /deliveries/{deliveryId}/{allPaths=**} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && isImageFile() && isUnder5MB();
+    }
+
+    // Campaign assets
+    match /campaigns/{campaignId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAuthenticated() && isUnder5MB();
+    }
+  }
+}

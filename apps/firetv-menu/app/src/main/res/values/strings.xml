@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Digital Menu Board</string>
+    <string name="menu_category_all">All Items</string>
+    <string name="scan_to_order">Scan to Order</string>
+    <string name="loading_menu">Loading menu...</string>
+    <string name="no_items">No items available</string>
+    <string name="price_format">$%1$.2f</string>
+    <string name="settings">Settings</string>
+    <string name="daily_specials">Daily Specials</string>
+</resources>

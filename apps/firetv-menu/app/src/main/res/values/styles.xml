@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.FireTVMenu" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:colorPrimary">#FF6B35</item>
+        <item name="android:colorPrimaryDark">#E55A2B</item>
+        <item name="android:colorAccent">#FF6B35</item>
+        <item name="android:windowBackground">#1A1A2E</item>
+        <item name="android:textColorPrimary">#FAFAFA</item>
+        <item name="android:textColorSecondary">#A3A3A3</item>
+    </style>
+
+    <style name="MenuCategoryTab">
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#FAFAFA</item>
+    </style>
+
+    <style name="MenuItemName">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#FAFAFA</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MenuItemPrice">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">#FF6B35</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MenuItemDescription">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#A3A3A3</item>
+    </style>
+</resources>

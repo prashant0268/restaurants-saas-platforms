@@ -1,0 +1,25 @@
+{
+  "name": "restaurants-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "End-to-end restaurant business platform ecosystem",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "functions"
+  ],
+  "scripts": {
+    "build:types": "npm run build -w @restaurants/types",
+    "build:theme": "npm run build -w @restaurants/theme",
+    "build:utils": "npm run build -w @restaurants/utils",
+    "build:firebase-config": "npm run build -w @restaurants/firebase-config",
+    "build:packages": "npm run build:types && npm run build:theme && npm run build:utils && npm run build:firebase-config",
+    "build:ui": "npm run build -w @restaurants/ui",
+    "build:ui-native": "npm run build -w @restaurants/ui-native",
+    "lint": "echo 'TODO: Add linting'",
+    "clean": "rimraf node_modules packages/*/node_modules apps/*/node_modules functions/node_modules"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
